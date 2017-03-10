@@ -1,6 +1,6 @@
 {
     "name": "template",
-    "desc": "全世界最小的js模板引擎",
+    "desc": "最轻量级js模板引擎",
     "main": "./index.js",
-    "version": "1.0.0"
+    "version": "1.0.1"
 }

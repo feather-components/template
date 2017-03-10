@@ -10,7 +10,7 @@ if(typeof define == 'function' && define.amd){
 })(function(){
 
 return {
-    REG: /(')|([\r\n]+)|<%(=?)([\s\S]*?)%>/g,
+    REG: /(\\)|(')|([\r\n]+)|<%(=?)([\s\S]*?)%>/g,
 
     fetch: function(id, data){
         var elem = document.getElementById(id);
@@ -30,9 +30,9 @@ return {
     parseSyntax: function(content){
         return "with(__d__){__r__.push('" 
                 + 
-                content.replace(this.REG, function(_0, _1, _2, _3, _4){
-                    return _1 ? "\\'" : _2 ? "" : _3 ? "'," + _4 + ",'" : "'); \r\n" + _4 + "; \r\n__r__.push('";
-                }) 
+                content.replace(this.REG, function(_0, _1, _2, _3, _4, _5){
+                    return _1 ? "\\\\" :  _2 ? "\\'" : _3 ? "" : _4 ? "'," + _5 + ",'" : "'); \r\n" + _5 + "; \r\n__r__.push('";
+                })
                 + 
                 "');}return __r__.join('');";
     }
